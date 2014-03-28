@@ -11,7 +11,7 @@ define ('BOOK_FILE','http://localhost/ajax/files/books.txt');
 define ('NUM','num'); //NUM = переданный параметр
 
 header ('Content-type: text/plain; charset=utf-8');
-header ('Cache-control: no-store, no-cache');
+header ('Cache-Control: no-store, no-cache');
 header ('Expires: '. date("r"));
 
 //чтение файла
