@@ -72,7 +72,7 @@ function showAsyncRequestComplete() {
  	  if (req.readyState == 4) {
 	    	if(req.status == 200) {
 	 	    	var result = document.getElementById("asyncresult");
-								console.log('my' +req.responseText);
+							//	console.log('my' +req.responseText);
 	 		    result.firstChild.nodeValue = req.responseText;
 	     		req = null;
 	 	   }

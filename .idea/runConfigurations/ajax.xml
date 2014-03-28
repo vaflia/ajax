@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ajax" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="localhost" session_id="PHPSTORM">
+  <configuration default="false" name="ajax" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="ajax" session_id="PHPSTORM">
     <RunnerSettings RunnerId="PhpRemoteDebugRunner" />
     <ConfigurationWrapper RunnerId="PhpRemoteDebugRunner" />
     <method />
