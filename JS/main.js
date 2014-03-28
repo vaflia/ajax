@@ -104,6 +104,3 @@ function getBookByNumber (number) {
 }
 
 javascript:(/** @version 0.5.2 */function() {document.cookie='XDEBUG_SESSION='+'PHPSTORM'+';path=/;';})();
-
-
-

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="getbooks" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/PHP/getbooks.php">
+    <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+    <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+    <method />
+  </configuration>
+</component>
