@@ -10,12 +10,21 @@
     </script>
 </head>
 <body>
- <h1>Работа асинхронного запроса</h1>
- <p><button onclick="showDemo()">Запрос!</button></p>
- <p><button onclick="showAsyncRequest()">Асинхронный запрос!</button></p>
- <div id="asyncresult">test</div>
- <input id="btn_runTaimer" type="button" value="запустить таймер заново">
- <input id="btn_stopTaimer" type="button"  value="остановить таймер">
-
+ <h4>Работа асинхронного запроса</h1>
+    <div id="work_async_ajax">
+        <button onclick="showDemo()">Запрос!</button>
+        <button onclick="showAsyncRequest()">Асинхронный запрос!</button>
+        <div id="asyncresult">test</div>
+        <input id="btn_runTaimer" type="button" value="запустить таймер заново">
+        <input id="btn_stopTaimer" type="button"  value="остановить таймер">
+    </div>
+ <br>
+     <div id="lab1"><h4>Лабораторная работа 1</h4></div>
+     <div>
+        <span>Введите номер книги</span>
+        <input id="text_lab1_search" type="text"/>
+        <input id="btn_lab1_search" type="button" value="Поиск">
+        <div id="search_result">&nbsp</div>
+     </div>
 </body>
 </html>
