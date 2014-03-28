@@ -38,7 +38,8 @@ function showDemo () {
 };
 
 function showAsyncRequest () {
-    getTimeUrl = "PHP/gettime.php?delay=1";
+    //todo возможно надо не с 0....
+    getTimeUrl = "PHP/gettime.php?delay=0";
     req = getXmlHttp();
     req.onreadystatechange = showAsyncRequestComplete;
     req.open("GET", getTimeUrl, true);
@@ -62,22 +63,19 @@ function runTaimer (){
 function init() {
     var btn_runTaimer = document.getElementById("btn_runTaimer");
     var btn_stopTaimer = document.getElementById("btn_stopTaimer");
-    //добавление события на кнопку;
-    /*if(button.addEventListener){
-        button.addEventListener("click", function() { alert("alert");}, false);
-    } else if(button.attachEvent){
-        button.attachEvent("onclick", function() { alert("alert");});
-    }*/
     //еще один вариант добавления события
-    btn_runTaimer.onclick = (function(){runTaimer()});
-    btn_stopTaimer.onclick = (function(){clearInterval(timer)});
+    //btn_runTaimer.onclick =  (function(){runTaimer()});
+    //btn_stopTaimer.onclick = (function(){clearInterval(timer)});
+    //добавление через новую библиотеку
+    Event.add(btn_runTaimer,'click', (function(){runTaimer()}))
+    Event.add(btn_stopTaimer,'click', (function(){clearInterval(timer)}))
 };
 
 if(window.addEventListener){
     window.addEventListener("load", init, false);
 } else if(window.attachEvent){
     window.attachEvent("onload", init);
-} else{
+} else {
     document.addEventListener("load", init, false);
 }
 
