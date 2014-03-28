@@ -40,11 +40,11 @@ function getXmlHttp(){
  {
      try
      {
-         return new ActiveXObject('Msxml2.XMLHTTP');
+							return new ActiveXObject('Msxml2.XMLHTTP');
      } catch (e){}
      try
      {
-         return new ActiveXObject('Microsoft.XMLHTTP');
+							return new ActiveXObject('Microsoft.XMLHTTP');
      } catch (e) {}
  }
  return null;
@@ -60,26 +60,27 @@ function showDemo () {
 
 function showAsyncRequest () {
     //возможно надо не с 0....
-    getTimeUrl = "PHP/gettime.php?delay=1";
+    getTimeUrl = "PHP/gettime.php?delay=0";
     req = getXmlHttp();
-    req.onreadystatechange = showAsyncRequestComplete();
+    req.onreadystatechange = showAsyncRequestComplete;
     req.open("GET", getTimeUrl, true);
     req.send (null);
 }
 
 function showAsyncRequestComplete() {
-	 console.log(req.status);
+	 //console.log(req.status);
  	  if (req.readyState == 4) {
 	    	if(req.status == 200) {
 	 	    	var result = document.getElementById("asyncresult");
+								console.log('my' +req.responseText);
 	 		    result.firstChild.nodeValue = req.responseText;
-	    //		req = null;
+	     		req = null;
 	 	   }
 	   }
 }
 
 function runTaimer (){
-  timer = setInterval(function(){showAsyncRequest()}, 9000);
+  timer = setInterval(function(){showAsyncRequest()}, 1000);
 }
 
 function showBook () {
