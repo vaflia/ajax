@@ -1,4 +1,4 @@
-var json_data = [];
+п»їvar json_data = [];
 var loading_data = 0;
 
 $(document).ready( function(){
@@ -7,7 +7,7 @@ $(document).ready( function(){
 
     ymaps.ready(init);
 
-    //навигация
+    //РЅР°РІРёРіР°С†РёСЏ
     $('#mapGL .nav li').click( function(){
         if ( $(this).hasClass('active') ) {
             $(this).removeClass('active');
@@ -23,10 +23,10 @@ $(document).ready( function(){
         
         if ( !$('#mapGL .changed').length ) {
             $('#mapGL .nav .sub .first .clear').attr('onclick', 'checkAll()');
-            $('#mapGL .nav .sub .first .clear').text('Отметить все');
+            $('#mapGL .nav .sub .first .clear').text('РћС‚РјРµС‚РёС‚СЊ РІСЃРµ');
         } else {
             $('#mapGL .nav .sub .first .clear').attr('onclick', 'clearAll()');
-            $('#mapGL .nav .sub .first .clear').text('Сброс');
+            $('#mapGL .nav .sub .first .clear').text('РЎР±СЂРѕСЃ');
         } 
 
         getJsonData();
@@ -39,7 +39,7 @@ $(document).ready( function(){
 
     $('#mapGL .filter input').click( function(){
         if ( $(this).attr('id') == "filter_nearest" && typeof(Human) == 'undefined' ) {
-            alert( "Необходимо установить маркер вашего местоположения!" );
+            alert( "РќРµРѕР±С…РѕРґРёРјРѕ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РјР°СЂРєРµСЂ РІР°С€РµРіРѕ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёСЏ!" );
             setManually();
             $(this).attr('checked', false);
             return false;
@@ -97,43 +97,43 @@ $(document).ready( function(){
 
     //report mess
     $('#YMapsID .report').live('click', function(){
-        //новая высота балуна
+        //РЅРѕРІР°СЏ РІС‹СЃРѕС‚Р° Р±Р°Р»СѓРЅР°
         var height_new = 350;
         var content = $(this).parent().parent().parent().parent().parent().parent();
         var content_head = $(this).parent().parent().parent().parent().find('h3');
         var content_body = $(this).parent();
 
-        var frm_text = '<span class="introtext">Если Вы заметили несоответствие между реальными данными о точках оплаты и нашей информацией, просим сообщить нам об этом! мы регулярно проводим проверку нашей информации о точках оплаты, надеемся, что вместе с Вами мы сможем делать еще быстрее и эффективнее!</span>';
+        var frm_text = '<span class="introtext">Р•СЃР»Рё Р’С‹ Р·Р°РјРµС‚РёР»Рё РЅРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ РјРµР¶РґСѓ СЂРµР°Р»СЊРЅС‹РјРё РґР°РЅРЅС‹РјРё Рѕ С‚РѕС‡РєР°С… РѕРїР»Р°С‚С‹ Рё РЅР°С€РµР№ РёРЅС„РѕСЂРјР°С†РёРµР№, РїСЂРѕСЃРёРј СЃРѕРѕР±С‰РёС‚СЊ РЅР°Рј РѕР± СЌС‚РѕРј! РјС‹ СЂРµРіСѓР»СЏСЂРЅРѕ РїСЂРѕРІРѕРґРёРј РїСЂРѕРІРµСЂРєСѓ РЅР°С€РµР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ С‚РѕС‡РєР°С… РѕРїР»Р°С‚С‹, РЅР°РґРµРµРјСЃСЏ, С‡С‚Рѕ РІРјРµСЃС‚Рµ СЃ Р’Р°РјРё РјС‹ СЃРјРѕР¶РµРј РґРµР»Р°С‚СЊ РµС‰Рµ Р±С‹СЃС‚СЂРµРµ Рё СЌС„С„РµРєС‚РёРІРЅРµРµ!</span>';
         frm_text += '<form action="" method="post">';
-        frm_text += '   <label for="name">Представьтесь, пожалуйста</label>';
+        frm_text += '   <label for="name">РџСЂРµРґСЃС‚Р°РІСЊС‚РµСЃСЊ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°</label>';
         frm_text += '   <input type="text" name="name" id="name">';
-        frm_text += '   <label for="email">Оставьте свой E-mail адрес</label>';
+        frm_text += '   <label for="email">РћСЃС‚Р°РІСЊС‚Рµ СЃРІРѕР№ E-mail Р°РґСЂРµСЃ</label>';
         frm_text += '   <input type="text" name="email" id="email">';
-        frm_text += '   <label for="message">Ваше сообщение</label>';
+        frm_text += '   <label for="message">Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ</label>';
         frm_text += '   <textarea name="message" id="message"></textarea>';
-        frm_text += '   <div class="frmAction"><a class="button" href="javascript: void(0);"><span>Отправить</span><b></b></a> или <a href="javascript: void(0);" class="balloon_close">отменить</a></div>';
+        frm_text += '   <div class="frmAction"><a class="button" href="javascript: void(0);"><span>РћС‚РїСЂР°РІРёС‚СЊ</span><b></b></a> РёР»Рё <a href="javascript: void(0);" class="balloon_close">РѕС‚РјРµРЅРёС‚СЊ</a></div>';
         frm_text += '</form>';
 
-        //старая высота балуна
+        //СЃС‚Р°СЂР°СЏ РІС‹СЃРѕС‚Р° Р±Р°Р»СѓРЅР°
         var height_old = content.height();
         var top_old = parseInt( content.parent().parent().css('top') );
         var top_new = top_old + height_old - height_new;
         content.parent().parent().css('top', top_new + "px");
 
         content.height( height_new );
-        content_head.text( "Обратная связь" );
+        content_head.text( "РћР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ" );
         content_body.html( frm_text );
     });
 
     //send report
     $('#YMapsID form .button').live('click', function(){
-        //новая высота балуна
+        //РЅРѕРІР°СЏ РІС‹СЃРѕС‚Р° Р±Р°Р»СѓРЅР°
         var height_new = 100;
         var content = $(this).parent().parent().parent().parent().parent().parent().parent().parent();
         var content_body = $(this).parent().parent().parent();
-        var frm_text = '<span class="introtext">Спасибо за ваще сообщение!</span>';
+        var frm_text = '<span class="introtext">РЎРїР°СЃРёР±Рѕ Р·Р° РІР°С‰Рµ СЃРѕРѕР±С‰РµРЅРёРµ!</span>';
 
-        //старая высота балуна
+        //СЃС‚Р°СЂР°СЏ РІС‹СЃРѕС‚Р° Р±Р°Р»СѓРЅР°
         var height_old = content.height();
         var top_old = parseInt( content.parent().parent().css('top') );
         var top_new = top_old + height_old - height_new;
@@ -199,18 +199,18 @@ function init() {
 
 var clearAll = function() {
     $('#mapGL .changed').removeClass('changed');
-    // Удаляем все  метки из кластера
+    // РЈРґР°Р»СЏРµРј РІСЃРµ  РјРµС‚РєРё РёР· РєР»Р°СЃС‚РµСЂР°
     myClusterer.removeAll();
-    // Удаляем кластер с карты
+    // РЈРґР°Р»СЏРµРј РєР»Р°СЃС‚РµСЂ СЃ РєР°СЂС‚С‹
     myMap.geoObjects.remove(myClusterer);
     $('#mapGL .nav .sub .first .clear').attr('onclick', 'checkAll()');
-    $('#mapGL .nav .sub .first .clear').text('Отметить все');
+    $('#mapGL .nav .sub .first .clear').text('РћС‚РјРµС‚РёС‚СЊ РІСЃРµ');
 }
 var checkAll = function() {
     $('#mapGL .change').addClass('changed');
     $('#mapGL .change').addClass('loader');
     $('#mapGL .nav .sub .first .clear').attr('onclick', 'clearAll()');
-    $('#mapGL .nav .sub .first .clear').text('Сброс');
+    $('#mapGL .nav .sub .first .clear').text('РЎР±СЂРѕСЃ');
     getJsonData();
 }
 
@@ -246,7 +246,7 @@ var getJsonData = function( map_reset ) {
                 //console.log( json_data );
                 loading_data--;
                 if ( typeof(map_reset) != 'undefined' ) myMap.setCenter( json_data.city_coordi, 14);
-                //обновляем только финишную загрузку
+                //РѕР±РЅРѕРІР»СЏРµРј С‚РѕР»СЊРєРѕ С„РёРЅРёС€РЅСѓСЋ Р·Р°РіСЂСѓР·РєСѓ
                 if ( loading_data == 0 ) refreshPoints();
             }
         }, "json");
@@ -255,12 +255,12 @@ var getJsonData = function( map_reset ) {
 var refreshPoints = function() {
     if ( typeof(myClusterer) == 'undefined' ) return;
 
-    // Удаляем все  метки из кластера
+    // РЈРґР°Р»СЏРµРј РІСЃРµ  РјРµС‚РєРё РёР· РєР»Р°СЃС‚РµСЂР°
     myClusterer.removeAll();
-    // Удаляем кластер с карты
+    // РЈРґР°Р»СЏРµРј РєР»Р°СЃС‚РµСЂ СЃ РєР°СЂС‚С‹
     myMap.geoObjects.remove(myClusterer);
 
-    //список точек для поиска
+    //СЃРїРёСЃРѕРє С‚РѕС‡РµРє РґР»СЏ РїРѕРёСЃРєР°
     var listSearch = '';
 
     $.each( json_data.address, function(i){
@@ -280,9 +280,9 @@ var refreshPoints = function() {
 
     $('#mapGL .loader').removeClass('loader');
 
-    //это для поиска
+    //СЌС‚Рѕ РґР»СЏ РїРѕРёСЃРєР°
     if (  $('#mapGL .search input').val().length > 0 ) {
-        if ( listSearch == '' ) listSearch = "<li>Результаты отсутствуют</li>";
+        if ( listSearch == '' ) listSearch = "<li>Р РµР·СѓР»СЊС‚Р°С‚С‹ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚</li>";
         $('#mapGL .search ul').html( listSearch );
         $('#mapGL .search').addClass('active');
     }
@@ -298,15 +298,15 @@ var loadContent = function( placemark ) {
 
                 $.each( data, function(i){
                     info += '<p class="point"><b>' + data[i].pagetitle + '</b>';
-                    info += '<span>Режим работы: ' + data[i].timeWork + '</span>';
-                    //info += '<span>Время зачисления: ' + data[i].timePay + '</span>';
+                    info += '<span>Р РµР¶РёРј СЂР°Р±РѕС‚С‹: ' + data[i].timeWork + '</span>';
+                    //info += '<span>Р’СЂРµРјСЏ Р·Р°С‡РёСЃР»РµРЅРёСЏ: ' + data[i].timePay + '</span>';
 
-                    if( data[i].commission == '0' ) info += '<span class="commission" style="color: green;">Без комиссии</span>';
-                    else info += '<span class="commission"  style="color: red;">Комиссия: ' + data[i].commission + '</span>';
+                    if( data[i].commission == '0' ) info += '<span class="commission" style="color: green;">Р‘РµР· РєРѕРјРёСЃСЃРёРё</span>';
+                    else info += '<span class="commission"  style="color: red;">РљРѕРјРёСЃСЃРёСЏ: ' + data[i].commission + '</span>';
 
                     info += '</p>';
                 });
-                info += '<div class="report"><a href="javascript: void(0);">Точка оплаты не работает или данные не верны?</a></div>';
+                info += '<div class="report"><a href="javascript: void(0);">РўРѕС‡РєР° РѕРїР»Р°С‚С‹ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ РёР»Рё РґР°РЅРЅС‹Рµ РЅРµ РІРµСЂРЅС‹?</a></div>';
 
                 placemark.properties.set({balloonContent: info});
             }
@@ -380,7 +380,7 @@ var myLocation = function( ip_addr ) {
                     myMap.setCenter( myLocationGeoObject.geometry.getCoordinates() );
                 })
             }else{
-                alert( "Неудалось определить ваше местоположение. Попробуйте установить маркер вручную." );
+                alert( "РќРµСѓРґР°Р»РѕСЃСЊ РѕРїСЂРµРґРµР»РёС‚СЊ РІР°С€Рµ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РјР°СЂРєРµСЂ РІСЂСѓС‡РЅСѓСЋ." );
                 setManually();
             }
         });
@@ -392,7 +392,7 @@ var setManually = function( myCoord ) {
     var center = (typeof myCoord !== 'undefined')? myCoord : myMap.getCenter();
 
     window.Human = new ymaps.Placemark( center, {
-        hintContent: 'Подвинь меня!'
+        hintContent: 'РџРѕРґРІРёРЅСЊ РјРµРЅСЏ!'
     }, {
         iconImageHref: 'image/human.png',
         iconImageSize: [48,43],
@@ -401,7 +401,7 @@ var setManually = function( myCoord ) {
     myMap.geoObjects.add( Human );
     searchRoute( Human.geometry.getCoordinates() );
 
-    //при перемещении объекта необходимо обновить его координаты
+    //РїСЂРё РїРµСЂРµРјРµС‰РµРЅРёРё РѕР±СЉРµРєС‚Р° РЅРµРѕР±С…РѕРґРёРјРѕ РѕР±РЅРѕРІРёС‚СЊ РµРіРѕ РєРѕРѕСЂРґРёРЅР°С‚С‹
     Human.events.add('dragend', function() {
         Human.options.set('iconImageHref', 'image/human.png');
         Human.options.set('iconImageSize', [48,43]);
@@ -423,14 +423,14 @@ var searchRoute = function( myCoord ) {
     var arrGeoObj = [];
     var arrGeoObjClosest = [];
 
-    //собираем активные объекты на карте
+    //СЃРѕР±РёСЂР°РµРј Р°РєС‚РёРІРЅС‹Рµ РѕР±СЉРµРєС‚С‹ РЅР° РєР°СЂС‚Рµ
     myMap.geoObjects.each( function(geoObject) {
         //console.log( geoObject );
-        //исключаем лишние объекты на карте
+        //РёСЃРєР»СЋС‡Р°РµРј Р»РёС€РЅРёРµ РѕР±СЉРµРєС‚С‹ РЅР° РєР°СЂС‚Рµ
         if ( geoObject.geometry == null && typeof(geoObject.routeOptions) == 'undefined' ) {
             geoObject.each( function(item) {
                 var coord = item.geometry.getCoordinates();
-                //теорема Пифагора
+                //С‚РµРѕСЂРµРјР° РџРёС„Р°РіРѕСЂР°
                 var r = Math.sqrt( Math.pow( coord[0]-myCoord[0], 2 ) + Math.pow( coord[1]-myCoord[1], 2 ) );
                 r = Math.ceil( r*10000 );
                 arrGeoObj[r] = coord;
@@ -441,7 +441,7 @@ var searchRoute = function( myCoord ) {
         }
     });
 
-    //выбираем 5 ближайших
+    //РІС‹Р±РёСЂР°РµРј 5 Р±Р»РёР¶Р°Р№С€РёС…
     var j = 0;
     for( var i in arrGeoObj ) {
         arrGeoObjClosest[j] = arrGeoObj[i];
@@ -467,6 +467,6 @@ var searchRoute = function( myCoord ) {
             myMap.geoObjects.add(shortestRoute);
 
         }, function (error) {
-            console.log("Возникла ошибка: " + error.message);
+            console.log("Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР°: " + error.message);
         });
 }
