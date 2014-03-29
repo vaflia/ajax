@@ -14,5 +14,5 @@ if (isset($_GET["delay"]))
     $currTime = time();
     while (time()<$currTime+$delay) {}
 }
-echo date("H:i:s");
+date("H:i:s");
 ?>

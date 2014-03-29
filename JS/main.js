@@ -12,6 +12,7 @@ function init() {
   var btn_stopTaimer = document.getElementById("btn_stopTaimer");
   var btn_lab1_search = document.getElementById("btn_lab1_search");
   var btn_lab2_search = document.getElementById("btn_lab2_search");
+  var btn_testConnect = document.getElementById("btn_testConnect");
   //еще один вариант добавления события
   btn_runTaimer.onclick =  (function(){runTaimer()});
   btn_stopTaimer.onclick = (function(){clearInterval(timer)});
@@ -20,6 +21,22 @@ function init() {
   Event.add(btn_stopTaimer,'click', (function(){clearInterval(timer)}))
   Event.add(btn_lab1_search,'click',(function(){showBook()}));
   Event.add(btn_lab2_search,'click',(function(){searchBook()}));
+  Event.add(btn_testConnect,'click',(function(){testConnect()}));
+}
+
+function testConnect() {
+    req = getXmlHttp();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if(req.status == 200) {
+                var resultConnect = document.getElementById("resultConnect");
+                resultConnect.firstChild.nodeValue = req.responseText;
+                req = null;
+            }
+        }
+       };
+    req.open("GET", "PHP/connect.php", true);
+    req.send (null);
 }
 
 if(window.addEventListener){
@@ -106,6 +123,7 @@ function getBookByNumber (number) {
 		req.send (null);
 }
 
+/*
 //----------------------------------ЛАБА 2
 function searchBook() {
     // Параметры поиска
@@ -128,6 +146,7 @@ function searchBook() {
     req.open("POST", 'PHP/searchbooks.php", true);
     req.send (null);
 }
+*/
 
 
 

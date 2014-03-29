@@ -26,7 +26,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="-17.192308" vertical-offset="352" max-vertical-offset="901">
+            <state line="37" column="57" selection-start="1368" selection-end="1368" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
@@ -35,16 +35,16 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JS/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="8" selection-start="3462" selection-end="3462" vertical-scroll-proportion="0.0" vertical-offset="1737" max-vertical-offset="2363">
+            <state line="36" column="9" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2686">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ulResultFunctions.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ulResultFunctions.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JS/ulResultFunctions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="47" selection-start="436" selection-end="436" vertical-scroll-proportion="0.5029586" vertical-offset="0" max-vertical-offset="507">
+            <state line="15" column="47" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,34 @@
       <file leaf-file-name="gettime.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/gettime.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="408">
+            <state line="11" column="1" selection-start="205" selection-end="205" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PHP/connect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="5" selection-start="706" selection-end="706" vertical-scroll-proportion="0.5766283" vertical-offset="141" max-vertical-offset="663">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config_db.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/core/config_db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="2" selection-start="129" selection-end="129" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getcategories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/getcategories.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="268" selection-end="268" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
               <folding />
             </state>
           </provider>
@@ -69,10 +96,14 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/JS/ulResultFunctions.js" />
         <option value="$PROJECT_DIR$/PHP/gettime.php" />
+        <option value="$PROJECT_DIR$/PHP/getcategories.php" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/JS/main.js" />
-        <option value="$PROJECT_DIR$/JS/ulResultFunctions.js" />
+        <option value="$PROJECT_DIR$/../index.php" />
+        <option value="$PROJECT_DIR$/PHP/core/config_db.php" />
+        <option value="$PROJECT_DIR$/PHP/connect.php" />
       </list>
     </option>
   </component>
@@ -88,10 +119,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="79" />
-    <option name="y" value="42" />
-    <option name="width" value="1079" />
-    <option name="height" value="635" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1288" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -162,6 +193,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ajax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ajax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="JS" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -182,7 +231,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="PHP Script.getbooks">
+  <component name="RunManager" selected="PHP Remote Debug.ajax">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -190,10 +239,10 @@
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="localhost" session_id="PHPSTORM">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="localhost" session_id="PHPSTORM">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -237,27 +286,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="79" y="42" width="1079" height="635" extended-state="0" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1288" height="778" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13725491" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3977486" sideWeight="0.7913938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15088758" sideWeight="0.7913938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09380863" sideWeight="0.20860617" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -296,6 +345,46 @@
           <line>9</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>7</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>8</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/getcategories.php</url>
+          <line>11</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/getcategories.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>9</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>10</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/PHP/connect.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -305,7 +394,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -321,6 +410,34 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="8" selection-start="3462" selection-end="3462" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="2363">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/ulResultFunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="47" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/gettime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JS/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="36" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0" vertical-offset="1133" max-vertical-offset="1887">
@@ -384,30 +501,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/gettime.php">
+    <entry file="file://$PROJECT_DIR$/JS/ulResultFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="408">
+        <state line="15" column="47" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/main.js">
+    <entry file="file://$PROJECT_DIR$/PHP/gettime.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="8" selection-start="3462" selection-end="3462" vertical-scroll-proportion="0.0" vertical-offset="1737" max-vertical-offset="2363">
+        <state line="11" column="1" selection-start="205" selection-end="205" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../apps/phpmyadmin4.0.4/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="21" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.33202356" vertical-offset="1123" max-vertical-offset="10540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/getcategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="268" selection-end="268" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="0" selection-start="15401" selection-end="15401" vertical-scroll-proportion="-6.5" vertical-offset="3741" max-vertical-offset="8415">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/core/config_db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="2" selection-start="129" selection-end="129" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="-17.192308" vertical-offset="352" max-vertical-offset="901">
+        <state line="37" column="57" selection-start="1368" selection-end="1368" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/ulResultFunctions.js">
+    <entry file="file://$PROJECT_DIR$/JS/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="47" selection-start="436" selection-end="436" vertical-scroll-proportion="0.5029586" vertical-offset="0" max-vertical-offset="507">
+        <state line="36" column="9" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="5" selection-start="706" selection-end="706" vertical-scroll-proportion="0.5766283" vertical-offset="141" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
