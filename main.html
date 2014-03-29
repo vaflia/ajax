@@ -5,9 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="JS/event.js"></script>
     <script src="JS/main.js"></script>
-    <script>
-
-    </script>
+    <script src="JS/ulResultFunctions.js"></script>
 </head>
 <body>
  <h3>Работа асинхронного запроса</h3>
@@ -26,5 +24,24 @@
         <input id="btn_lab1_search" type="button" value="Поиск">
         <div id="search_result">&nbsp</div>
      </div>
+ <br/>
+ <h1>Передача данных методом POST</h1>
+   <div>
+       <form onsubmit="return false">
+           <fieldset>
+               <legend>Поиск книг</legend>
+               <div>
+                   <label for="txtAuthor">Автор</label>
+                   <input id="txtAuthor" type="text" name="author" />
+               </div>
+               <div>
+                   <label for="txtTitle">Название</label>
+                   <input id="txtTitle" type="text" name="title" />
+               </div>
+               <button id="btn_lab2_search">Поиск</button>
+           </fieldset>
+       </form>
+       <ul id="ulResult"></ul>
+   </div>
 </body>
 </html>
