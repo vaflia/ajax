@@ -6,5 +6,5 @@ $mysql = array (
 );
 $database = array (
   'db_ajax'=>'ajax_book'
-)
+);
 ?>

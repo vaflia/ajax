@@ -13,6 +13,8 @@ function init() {
   var btn_lab1_search = document.getElementById("btn_lab1_search");
   var btn_lab2_search = document.getElementById("btn_lab2_search");
   var btn_testConnect = document.getElementById("btn_testConnect");
+  var btn_createSpisokBooks = document.getElementById("btn_createSpisokBooks");
+  var btn_showBookByCat = document.getElementById("btn_showBookByCat");
   //еще один вариант добавления события
   btn_runTaimer.onclick =  (function(){runTaimer()});
   btn_stopTaimer.onclick = (function(){clearInterval(timer)});
@@ -22,6 +24,8 @@ function init() {
   Event.add(btn_lab1_search,'click',(function(){showBook()}));
   Event.add(btn_lab2_search,'click',(function(){searchBook()}));
   Event.add(btn_testConnect,'click',(function(){testConnect()}));
+  Event.add(btn_createSpisokBooks,'click',(function(){showCategories()}));
+  Event.add(btn_showBookByCat,'click',(function(){showBookByCat()}));
 }
 
 function testConnect() {
@@ -123,6 +127,158 @@ function getBookByNumber (number) {
 		req.send (null);
 }
 
+function showCategories() {
+    req = getXmlHttp();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if(req.status == 200) {
+                var selCategory = document.getElementById("selCategory");
+                // Получим строку ответа
+                var responseText = req.responseText;
+                // Разделим строку на массив
+                var category = responseText.split("\n");
+                // Создадим необходимое количество элементов option с кодами категорий
+                for (var i = 0; i < category.length; i++)
+                {
+                    if (category[i] == '') continue;
+                    // Разделим строку по символу ":"
+                    var parts = category[i].split(":");
+                    // Создадим новый элемент option
+                    var option = document.createElement("option");
+                    option.setAttribute("value", parts[0]);
+                    var optionText = document.createTextNode(parts[1]);
+                    option.appendChild(optionText);
+                    selCategory.appendChild(option);
+                }
+                req = null;
+            }
+        }
+    };
+    req.open("GET", "PHP/workwithbook.php?typeoper="+encodeURIComponent('getCategory'), true);
+    req.send (null);
+}
+// Класс книга
+function Book(author, title, image)
+{
+    this.author = author;
+    this.title = title;
+    this.image = image;
+}
+
+
+function showBookByCat() {
+    // Параметры поиска
+    // Узнаем код выбранной категории
+    var selCategory = document.getElementById("selCategory");
+    if (selCategory.selectedIndex < 0) {
+        alert("Необходимо выбрать категорию в списке");
+        return;
+    }
+    var catId = selCategory.options[selCategory.selectedIndex].value;
+    req = getXmlHttp();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if(req.status == 200) {
+                var responseText = new String(req.responseText);
+                var c = document.getElementById("div_tableBooks");
+                c.firstChild.nodeValue="";
+                // Разделим строку на массив
+                // Таблица tableBooks
+                var tableBooks = document.getElementById("tableBooks");
+                if (responseText.length==0) {
+                    while (tableBooks.hasChildNodes())
+                        tableBooks.removeChild(tableBooks.lastChild);
+                    var c = document.getElementById("div_tableBooks");
+                    c.firstChild.nodeValue="Книги не найдены в категории";
+                    return;
+                }
+                var bookStrings = responseText.split("\n");
+                // Сформируем и заполним массив books
+                // Массив книг указанной категории
+                var books = new Array();
+                for (var i = 0; i < bookStrings.length; i++){
+                    if (bookStrings[i] == "") continue;
+                    var parts = bookStrings[i].split("|");
+                    books[books.length] = new Book(parts[0], parts[1], parts[2]);
+                }
+                // Очистка таблицы от предыдущей информации
+                while (tableBooks.hasChildNodes())
+                    tableBooks.removeChild(tableBooks.lastChild);
+                // Заполним таблицу данными по книгам
+                var thead = tableBooks.appendChild(document.createElement('thead'));
+                var trH = thead.appendChild(document.createElement('tr'));
+                var th1 = trH.appendChild(document.createElement('th'));
+                    th1.appendChild(document.createTextNode("Автор"));
+                var th2 = trH.appendChild(document.createElement('th'));
+                    th2.appendChild(document.createTextNode("Название"));
+                var tbody = tableBooks.appendChild(document.createElement('tbody'));
+                for (var i = 0; i < books.length; i++)
+                {
+                    // Создадим новый ряд таблицы
+                    var tr = tableBooks.insertRow(tableBooks.rows.length);
+                    // Добавим ячейки в таблицу
+                    var tdAuthor = tr.insertCell(tr.cells.length);
+                        tdAuthor.appendChild(document.createTextNode(books[i].author));
+                    var tdTitle = tr.insertCell(tr.cells.length);
+                        tdTitle.appendChild(document.createTextNode(books[i].title));
+                    // Добавим подсветку при наведении мышки
+                    tr.onmouseover = new Function("trHighLight(this, '#fcc')");
+                    tr.onmouseout = (function (){trHighLight(this,'')});//new Function("trHighLight(this, '')");
+                    // Сохраним картинку книги в атрибуте title элемента TR
+                    tr.title = books[i].image;
+                    // Добавим обработку щелчка
+                    tr.onclick = new Function("showImage(this)");
+                }
+                req = null;
+            }
+        }
+    };
+    // Метод POST
+    var postData = "typeoper="+encodeURIComponent('showBooksByCat')+"&category=" + catId;
+    req.open("POST", "PHP/workwithbook.php", true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.setRequestHeader("Content-Length", postData.length);
+    req.send(postData);
+}
+
+// Функция подсветки ряда таблицы
+function trHighLight(trObject, color)
+{
+    if (color != "")
+        trObject.style.backgroundColor = color;
+    else
+        trObject.style.backgroundColor = "";
+}
+
+// Функция проверки файла на сервере
+function isExists(url){
+    // Запрос к серверу
+    var req = getXmlHttp();
+    // Запрашиваем URL методом HEAD в синхронном режиме
+    req.open("HEAD", url, false);
+    req.send(null);
+    // Если файл есть - статус == 200
+    return (req.status == 200);
+}
+
+// Функция показа картинки
+function showImage(trObject){
+    // Путь к файлам изображений на сервере
+    var imagePath = "images/";
+    var image = imagePath + trObject.title;
+    var divBookInfo = document.getElementById("divBookInfo");
+    var img = divBookInfo.getElementsByTagName("img")[0];
+
+    if (isExists(image)) {
+        // Файл есть, покажем картинку
+        img.src = image;
+        divBookInfo.style.display = "block";
+    }  else  {
+        // Файла нет, картинку не показываем
+        img.src = "";
+        divBookInfo.style.display = "";
+    }
+}
 /*
 //----------------------------------ЛАБА 2
 function searchBook() {
@@ -143,7 +299,7 @@ function searchBook() {
             }
         }
     };
-    req.open("POST", 'PHP/searchbooks.php", true);
+    req.open("POST", "PHP/workwithbook.php", true);
     req.send (null);
 }
 */

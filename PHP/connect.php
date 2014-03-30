@@ -8,16 +8,18 @@
 class MySql
 {
     static protected $SqlConnection = null;
+    static protected $SqlClose = null;
+    static protected $Link = null;
     static function GetConnection()
     {
         if (self::$SqlConnection === null)
         {
             @require_once $_SERVER['DOCUMENT_ROOT'].'/ajax/PHP/core/config_db.php';
-            if (!@$link = mysql_connect($mysql['host'], $mysql['user'], $mysql['pass']))
+            if (!self::$Link = mysql_connect($mysql['host'], $mysql['user'], $mysql['pass']))
             {
                 exit('not connect db');
             }
-            if (!@mysql_select_db($database['db_ajax'],$link))
+            if (!@mysql_select_db($database['db_ajax'],self::$Link))
             {
                 exit('not select db');
             }
@@ -25,10 +27,15 @@ class MySql
         }
         return self::$SqlConnection=true;
     }
+    static function closeConn () {
+        if (mysql_close(self::$Link)) {
+            return self::$SqlClose=true;
+        } else return self::$SqlClose=false;
+    }
 }
-$result = '';
+/*$result = '';
 $result=MySql::GetConnection();
 if ($result) {
   echo 'успешное соединение!';
-} else echo 'не удалось соединиться с базой.';
+} else echo 'не удалось соединиться с базой.';*/
 ?>

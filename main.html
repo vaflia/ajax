@@ -25,6 +25,25 @@
         <div id="search_result">&nbsp</div>
      </div>
  <br/>
+ <h1>Построить список книг</h1>
+ <div>
+     <form onsubmit="return false">
+         <div>
+             <label for="selCategory">Категория</label>
+             <select id="selCategory"></select>
+             <button id="btn_createSpisokBooks">Создать список</button>
+             <button id="btn_showBookByCat">Найти книги по выбранной категории</button>
+             <div> </div>
+         </div>
+     </form>
+     <div id="div_tableBooks">&nbsp</div>
+     <div><table id="tableBooks"></table></div>
+     <div id="divBookInfo">
+         <img src="" alt="" />
+     </div>
+ </div>
+ <div>
+ <br/>
  <h1>Передача данных методом POST</h1>
    <div>
        <form onsubmit="return false">
