@@ -8,11 +8,11 @@
 header ("Content-type: text/plain; charset=utf-8");
 header ("Content-Control: no-store");
 
-if (isset($_GET["delay"]))
+/*if (isset($_GET["delay"]))
 {
     $delay=(int)$_GET["delay"];
     $currTime = time();
     while (time()<$currTime+$delay) {}
-}
-date("H:i:s");
+}*/
+echo date("H:i:s");
 ?>

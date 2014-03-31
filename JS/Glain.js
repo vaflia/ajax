@@ -243,8 +243,8 @@ var getJsonData = function( map_reset ) {
         function( data ) {
             if ( data != null ) {
                 json_data = data;
-                //console.log( json_data );
-                loading_data--;
+                console.log( json_data );
+                loading_data;
                 if ( typeof(map_reset) != 'undefined' ) myMap.setCenter( json_data.city_coordi, 14);
                 //обновляем только финишную загрузку
                 if ( loading_data == 0 ) refreshPoints();

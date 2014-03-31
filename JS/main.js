@@ -7,6 +7,14 @@ var getTimeUrl;
 var timer;
 javascript:(/** @version 0.5.2 */function() {document.cookie='XDEBUG_SESSION='+'PHPSTORM'+';path=/;';})();
 
+//харосы get and head кешируются браузером
+//не передавать в get and head запросах личную инфу и т.п. так как в логах видно что и кто.
+//грит типа что если сделать скрипт print_r ($_GET), то выведется содержимое гет даже при посте!тоесть гет заполняется всегда,
+// массив пост заполняется только когда передается форма...можно эмулировать заголовком content-type(multipart from data or application x www form urlencode)
+// + обязательно content.length
+// массив get походу заполняется всегда.
+
+
 function init() {
   var btn_runTaimer = document.getElementById("btn_runTaimer");
   var btn_stopTaimer = document.getElementById("btn_stopTaimer");
@@ -96,15 +104,15 @@ function showAsyncRequestComplete() {
  	  if (req.readyState == 4) {
 	    	if(req.status == 200) {
 	 	    	var result = document.getElementById("asyncresult");
-							//	console.log('my' +req.responseText);
-	 		    result.firstChild.nodeValue = req.responseText;
+								//console.log('my' +req.responseText);
+	 		    result.innerHTML = req.responseText;
 	     		req = null;
 	 	   }
 	   }
 }
 
 function runTaimer (){
-  timer = setInterval(function(){showAsyncRequest()}, 1000);
+  timer = setInterval(function(){showAsyncRequest()}, 100);
 }
 
 function showBook () {
@@ -138,18 +146,18 @@ function showCategories() {
                 // Разделим строку на массив
                 var category = responseText.split("\n");
                 // Создадим необходимое количество элементов option с кодами категорий
-                for (var i = 0; i < category.length; i++)
-                {
+                for (var i = 0; i < category.length; i++){
                     if (category[i] == '') continue;
                     // Разделим строку по символу ":"
                     var parts = category[i].split(":");
                     // Создадим новый элемент option
                     var option = document.createElement("option");
-                    option.setAttribute("value", parts[0]);
-                    var optionText = document.createTextNode(parts[1]);
-                    option.appendChild(optionText);
+                    	   option.setAttribute("value", parts[0]);
+                    //var optionText = document.createTextNode(parts[1]);
+                    	   option.innerHTML=parts[1];//тоже самое = appendChild(optionText);
                     selCategory.appendChild(option);
                 }
+													  	selCategory.size=selCategory.options.length;
                 req = null;
             }
         }
@@ -279,14 +287,13 @@ function showImage(trObject){
         divBookInfo.style.display = "";
     }
 }
-/*
-//----------------------------------ЛАБА 2
+//поиск книг
 function searchBook() {
     // Параметры поиска
     var title = document.getElementById("txtTitle").value;
     var author = document.getElementById("txtAuthor").value;
     // Формирование строки поиска
-    var searchString = "title=" + encodeURIComponent(title) + "&" + "author=" + encodeURIComponent(author);
+    var postData = "typeoper="+encodeURIComponent('searchBook')+"&title=" + encodeURIComponent(title) + "&author=" + encodeURIComponent(author);
     req = getXmlHttp();
     req.onreadystatechange = function () {
         if (req.readyState == 4) {
@@ -294,15 +301,23 @@ function searchBook() {
                 var responseText = new String(req.responseText);
                 var books = responseText.split('\n');
                 clearList();
+														  if (responseText.length==0) {addListItem('Ничего не найдено')}
                 for (var i=0; i< books.length; i++) addListItem(books[i]);
                 req = null;
             }
         }
     };
     req.open("POST", "PHP/workwithbook.php", true);
-    req.send (null);
-}
-*/
+		//обязательно устанавливаем заголовок, иначе массив post вообще не виден
+		  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		  req.setRequestHeader("Content-Length", postData.length);
+    req.send(postData);
+};
+
+
+
+
+
 
 
 
