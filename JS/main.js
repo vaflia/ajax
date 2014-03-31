@@ -24,8 +24,8 @@ function init() {
   var btn_createSpisokBooks = document.getElementById("btn_createSpisokBooks");
   var btn_showBookByCat = document.getElementById("btn_showBookByCat");
   //еще один вариант добавления события
-  btn_runTaimer.onclick =  (function(){runTaimer()});
-  btn_stopTaimer.onclick = (function(){clearInterval(timer)});
+  //btn_runTaimer.onclick =  (function(){runTaimer()});
+  //btn_stopTaimer.onclick = (function(){clearInterval(timer)});
   //добавление через новую библиотеку
   Event.add(btn_runTaimer,'click', (function(){runTaimer()}))
   Event.add(btn_stopTaimer,'click', (function(){clearInterval(timer)}))
@@ -187,9 +187,11 @@ function showBookByCat() {
     req.onreadystatechange = function () {
         if (req.readyState == 4) {
             if(req.status == 200) {
-                var responseText = new String(req.responseText);
+                var responseText = req.responseText;
                 var c = document.getElementById("div_tableBooks");
-                c.firstChild.nodeValue="";
+														//обнуляем предыдуще загруженные данные
+														//притоМ!!! если обнулять так а нетак - innerHTML то все рабит...
+                    c.firstChild.nodeValue='';
                 // Разделим строку на массив
                 // Таблица tableBooks
                 var tableBooks = document.getElementById("tableBooks");
@@ -223,8 +225,8 @@ function showBookByCat() {
                 for (var i = 0; i < books.length; i++)
                 {
                     // Создадим новый ряд таблицы
-                    var tr = tableBooks.insertRow(tableBooks.rows.length);
-                    // Добавим ячейки в таблицу
+                    var tr = tbody.insertRow(tbody.rows.length);//всегда пишем так. индекс доавляемого столюца = макс индексу в табл
+                    // Добавим ячейки в строку
                     var tdAuthor = tr.insertCell(tr.cells.length);
                         tdAuthor.appendChild(document.createTextNode(books[i].author));
                     var tdTitle = tr.insertCell(tr.cells.length);
@@ -281,10 +283,10 @@ function showImage(trObject){
         // Файл есть, покажем картинку
         img.src = image;
         divBookInfo.style.display = "block";
-    }  else  {
+    } else {
         // Файла нет, картинку не показываем
         img.src = "";
-        divBookInfo.style.display = "";
+        divBookInfo.style.display = "none";
     }
 }
 //поиск книг
@@ -308,7 +310,8 @@ function searchBook() {
         }
     };
     req.open("POST", "PHP/workwithbook.php", true);
-		//обязательно устанавливаем заголовок, иначе массив post вообще не виден
+	// обязательно устанавливаем заголовок, иначе массив post вообще не виден
+	// заголовки обязательны для post
 		  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		  req.setRequestHeader("Content-Length", postData.length);
     req.send(postData);
