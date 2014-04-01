@@ -13,7 +13,8 @@ javascript:(/** @version 0.5.2 */function() {document.cookie='XDEBUG_SESSION='+'
 // массив пост заполняется только когда передается форма...можно эмулировать заголовком content-type(multipart from data or application x www form urlencode)
 // + обязательно content.length
 // массив get походу заполняется всегда.
-
+//хорошая статья по созданию таблиц на java script http://www.softtime.ru/info/articlephp.php?id_article=67
+//http://easywebscripts.net/javascript/table.php
 
 function init() {
   var btn_runTaimer = document.getElementById("btn_runTaimer");
