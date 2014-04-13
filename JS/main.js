@@ -24,17 +24,19 @@ function init() {
   var btn_testConnect = document.getElementById("btn_testConnect");
   var btn_createSpisokBooks = document.getElementById("btn_createSpisokBooks");
   var btn_showBookByCat = document.getElementById("btn_showBookByCat");
+  var btn_showBooksAjax = document.getElementById("btn_ShowBooksAjax");
   //еще один вариант добавления события
   //btn_runTaimer.onclick =  (function(){runTaimer()});
   //btn_stopTaimer.onclick = (function(){clearInterval(timer)});
   //добавление через новую библиотеку
-  Event.add(btn_runTaimer,'click', (function(){runTaimer()}))
+ /* Event.add(btn_runTaimer,'click', (function(){runTaimer()}))
   Event.add(btn_stopTaimer,'click', (function(){clearInterval(timer)}))
   Event.add(btn_lab1_search,'click',(function(){showBook()}));
   Event.add(btn_lab2_search,'click',(function(){searchBook()}));
   Event.add(btn_testConnect,'click',(function(){testConnect()}));
   Event.add(btn_createSpisokBooks,'click',(function(){showCategories()}));
-  Event.add(btn_showBookByCat,'click',(function(){showBookByCat()}));
+  Event.add(btn_showBookByCat,'click',(function(){showBookByCat()}));*/
+  Event.add(btn_showBooksAjax,'click',(function(){showBooksAjax()}));
 }
 
 function testConnect() {
@@ -318,7 +320,66 @@ function searchBook() {
     req.send(postData);
 };
 
+// Покажем список книг
+function showBooksAjax()
+{
+    // Объект запроса
+    var req = getXmlHttp();
+    req.onreadystatechange = function()
+    {
+        if (req.readyState != 4) return;
+       var timename = 'Mytime';
+        console.time (timename);
+        // Очистка предыдущих результатов
+        var divResult = document.getElementById("divResult");
+        while (divResult.hasChildNodes())
+            divResult.removeChild(divResult.lastChild);
 
+        // Обработка JSON пакета
+        //console.log(req.responseText);
+        var books = JSON.parse(req.responseText);
+
+        // Отображение книг
+        for (var i = 0; i < books.length; i++)
+            showBookAjax(books[i]);
+        console.timeEnd(timename);
+    }
+    var catId = document.getElementById("txtCat");
+    // Метод POST
+    var postData = "typeoper="+encodeURIComponent('showBooksByCatAjax')+"&category=" + catId.value;
+    req.open("POST", "PHP/workwithbook.php", true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+   // req.setRequestHeader("Content-Length", postData.length);
+    req.send(postData);
+    //req.open("GET", "getbooks.php?cat=" + txtCat.value, true);
+    //req.send(null);
+}
+
+// Создание элемента с тектом
+function createElement(tag, text)
+{
+    var element = document.createElement(tag);
+    var elementText = document.createTextNode(text);
+    element.appendChild(elementText);
+    return element;
+}
+
+// Отображение книги
+function showBookAjax(objBook)
+{
+    var imagePath = "images/";
+    var divResult = document.getElementById("divResult");
+    var divBook = document.createElement("div");
+    divBook.className = "book";
+    divResult.appendChild(divBook);
+    var divBookAuthor = createElement("h3", objBook.author);
+    divBook.appendChild(divBookAuthor);
+    var divBookTitle = createElement("h2", objBook.title);
+    divBook.appendChild(divBookTitle);
+    var divBookImage = document.createElement("img");
+    divBookImage.src = imagePath + objBook.image;
+    divBook.appendChild(divBookImage);
+}
 
 
 

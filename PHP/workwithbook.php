@@ -41,12 +41,29 @@ MySql::GetConnection();
            }//else echo '';
        }
    };
+
+    if ((!empty($_POST['typeoper'])) and ($_SERVER['REQUEST_METHOD']=='POST')) {
+        if ($_POST['typeoper']=='showBooksByCatAjax') {
+            // Вывод категорий
+            $cat = (int) ($_POST['category']);
+            echo json_encode(showBooksByCatAjax($cat));
+            $_POST['typeoper']='';
+        } elseif ($_POST['typeoper']=='searchBook') {
+            if ((!empty($_POST['title'])) or (!empty($_POST['author']))) {
+                $author = mysql_real_escape_string($_POST['author']);
+                $title = mysql_real_escape_string($_POST['title']);
+                echo searchBooks($title,$author);
+            }//else echo '';
+        }
+    };
+
 MySql::closeConn();
 }
 
 //функция загружает книги по категории
 function showBooksByCat ($p_cat) {
     $resBooks = '';
+
     $sql = 'SELECT * FROM book WHERE category=' . $p_cat;
     $qry = mysql_query($sql) or die('Запрос не удался: ' . mysql_error());
     while ($row = mysql_fetch_array($qry, MYSQL_ASSOC)){
@@ -55,6 +72,27 @@ function showBooksByCat ($p_cat) {
     //if (empty($resBooks)) {$resBooks='Нету книг в данной категории';}
     return $resBooks;
 };
+//функция загружает книги в JSON по категории
+function showBooksByCatAjax ($p_cat) {
+    $books = array();
+    class Book {
+        public $author;
+        public $title;
+        public $image;
+        public function __construct($title='', $author='', $image=''){
+            $this->title = $title;
+            $this->author = $author;
+            $this->image = $image;
+        }
+    }
+    $sql = 'SELECT * FROM book WHERE category=' . $p_cat;
+    $qry = mysql_query($sql) or die('Запрос не удался: ' . mysql_error());
+    while ($row = mysql_fetch_array($qry, MYSQL_ASSOC)){
+        $books[]= new Book($row['title'], $row['author'], $row['image']);
+    }
+    return $books;
+};
+
 //функция производит поиск книг
 function searchBooks ($title,$author) {
     $resBooks = '';
